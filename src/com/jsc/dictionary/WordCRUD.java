@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class WordCRUD implements ICRDUD{
 	ArrayList<Word> list;
 	Scanner s;
-	
-	
+
+
 	WordCRUD(Scanner s) {
 		list = new ArrayList<>();
 		this.s = s;
@@ -15,22 +15,22 @@ public class WordCRUD implements ICRDUD{
 	}
 	@Override
 	public Object add() {
-		System.out.println("=> ³­ÀÌµµ(1,2,3) & »õ ´Ü¾î ÀÔ·Â : ");
+		System.out.println("ë‚œì´ë„(1,2,3) & ìƒˆ ë‹¨ì–´ ì…ë ¥ : ");
 		int level = s.nextInt();
 		String word = s.nextLine();
-		System.out.print("¶æ ÀÔ·Â : ");
+		System.out.print("ëœ» ì…ë ¥: ");
 		String meaning = s.nextLine();
-		
+
 		// TODO Auto-generated method stub
 		return new Word(0,level, word, meaning);
 	}
-	
+
 	public void addWord() {
 		Word one = (Word)add();
 		list.add(one);
-		System.out.println("´Ü¾î°¡ ´Ü¾îÀå¿¡ Ãß°¡ µÇ¾ú½À´Ï´Ù.");
+		System.out.println("ë‹¨ì–´ê°€ ë‹¨ì–´ì¥ì— ì¶”ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤. ");
 	}
-	
+
 	public void listAll() {
 		System.out.println("------------------------");
 		for(int i=0;i<list.size();i++) {
@@ -39,7 +39,7 @@ public class WordCRUD implements ICRDUD{
 		}
 		System.out.println("------------------------");
 	}
-	
+
 	@Override
 	public int update(Object obj) {
 		// TODO Auto-generated method stub
@@ -55,7 +55,7 @@ public class WordCRUD implements ICRDUD{
 	@Override
 	public void selectOne(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }

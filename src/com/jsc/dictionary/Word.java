@@ -1,5 +1,4 @@
 package com.jsc.dictionary;
-//데이터 클래스 
 public class Word {
 	
 	private int id;
