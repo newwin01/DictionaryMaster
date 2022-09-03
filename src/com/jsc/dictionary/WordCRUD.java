@@ -20,7 +20,6 @@ public class WordCRUD implements ICRDUD{
 		String word = s.nextLine();
 		System.out.print("뜻 입력: ");
 		String meaning = s.nextLine();
-
 		// TODO Auto-generated method stub
 		return new Word(0,level, word, meaning);
 	}
