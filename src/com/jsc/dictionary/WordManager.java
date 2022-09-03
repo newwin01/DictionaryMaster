@@ -21,6 +21,9 @@ public class WordManager {
 			if(menu==1) {
 				wordCRUD.listAll();
 			}
+			else{
+				System.out.println("메뉴를 다시 선택해주세요! ");
+			}
 		}
 		
 	}
