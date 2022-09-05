@@ -15,14 +15,17 @@ public class WordManager {
 		while(true) {
 			int menu = selectMenu();
 			if(menu==0) break;
-			if(menu==4) {
-				wordCRUD.addWord();
-			}
-			else if(menu==1) {
+			if(menu==1) {
 				wordCRUD.listAll();
+			}
+			else if(menu==4) {
+				wordCRUD.addWord();
 			}
 			else if(menu==5){
 				wordCRUD.updateItem();
+			}
+			else if(menu==6){
+				wordCRUD.deleteItem();
 			}
 			else{
 				System.out.println("메뉴를 다시 선택해주세요! ");
