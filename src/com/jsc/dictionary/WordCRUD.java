@@ -104,4 +104,8 @@ public class WordCRUD implements ICRUD{
 			System.out.println("취소되었습니다. ");
 		}
 	}
+
+	public void saveFile() {
+
+	}
 }
