@@ -1,9 +1,6 @@
 package com.jsc.dictionary;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,6 +37,18 @@ public class WordCRUD implements ICRUD{
 		for(int i=0;i<list.size();i++) {
 			System.out.print((i+1) + " ");
 			System.out.println(list.get(i).toString());
+		}
+		System.out.println("------------------------");
+	}
+	public void listAll(int level) {
+		int j=0;
+		System.out.println("------------------------");
+		for(int i=0;i<list.size();i++) {
+			int iLevel = list.get(i).getLevel();
+			if(iLevel!=level) continue;
+			System.out.print((j+1)+" ");
+			System.out.println(list.get(i).toString());
+			j++;
 		}
 		System.out.println("------------------------");
 	}
@@ -111,6 +120,16 @@ public class WordCRUD implements ICRUD{
 	}
 
 	public void saveFile() {
+		try {
+			PrintWriter pr = new PrintWriter(new FileWriter(fname));
+			for(Word data:list){
+				pr.write(data.toFileString()+"\n");
+			}
+			pr.close();
+			System.out.println("파일 저장이 완료되었습니다. ");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -137,5 +156,17 @@ public class WordCRUD implements ICRUD{
 		} catch (IOException e){
 			e.printStackTrace();
 		}
+	}
+
+	public void searchLevel() {
+		System.out.print("=> 원하는 레벨은? (1~3): ");
+		int level=s.nextInt();
+		listAll(level);
+	}
+
+	public void searchWord() {
+		System.out.print("=> 원하는 단어는?: ");
+		String word=s.next();
+		listAll(word);
 	}
 }
