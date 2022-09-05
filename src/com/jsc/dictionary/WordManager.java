@@ -27,6 +27,9 @@ public class WordManager {
 			else if(menu==6){
 				wordCRUD.deleteItem();
 			}
+			else if(menu==7){
+
+			}
 			else{
 				System.out.println("메뉴를 다시 선택해주세요! ");
 			}

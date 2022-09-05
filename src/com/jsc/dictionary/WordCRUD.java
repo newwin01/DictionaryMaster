@@ -3,7 +3,7 @@ package com.jsc.dictionary;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class WordCRUD implements ICRDUD{
+public class WordCRUD implements ICRUD{
 	ArrayList<Word> list;
 	Scanner s;
 
