@@ -26,12 +26,13 @@ public class WordCRUD implements ICRUD{
 		return new Word(0,level, word, meaning);
 	}
 
+	@Override
 	public void addWord() {
 		Word one = (Word)add();
 		list.add(one);
 		System.out.println("단어가 단어장에 추가 되었습니다. ");
 	}
-
+	@Override
 	public void listAll() {
 		System.out.println("------------------------");
 		for(int i=0;i<list.size();i++) {
@@ -40,6 +41,7 @@ public class WordCRUD implements ICRUD{
 		}
 		System.out.println("------------------------");
 	}
+	@Override
 	public void listAll(int level) {
 		int j=0;
 		System.out.println("------------------------");
@@ -53,6 +55,7 @@ public class WordCRUD implements ICRUD{
 		System.out.println("------------------------");
 	}
 	//Listing certain words
+	@Override
 	public ArrayList<Integer> listAll(String keyword) {
 		int number = 0;
 		ArrayList<Integer> idList = new ArrayList<>();
@@ -68,6 +71,7 @@ public class WordCRUD implements ICRUD{
 		System.out.println("------------------------");
 		return idList;
 	}
+	@Override
 	public void updateItem() {
 		System.out.print("==> 수정할 단어 검색: ");
 		String keyword = s.next();
@@ -82,24 +86,6 @@ public class WordCRUD implements ICRUD{
 		System.out.println("단어가 수정이 되었습니다. ");
 	}
 	@Override
-	public int update(Object obj) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(Object obj) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void selectOne(int id) {
-		// TODO Auto-generated method stub
-
-	}
-
-
 	public void deleteItem() {
 		System.out.print("==> 삭제할 단어 검색: ");
 		String keyword = s.next();
@@ -118,7 +104,7 @@ public class WordCRUD implements ICRUD{
 			System.out.println("취소되었습니다. ");
 		}
 	}
-
+	@Override
 	public void saveFile() {
 		try {
 			PrintWriter pr = new PrintWriter(new FileWriter(fname));
@@ -132,7 +118,7 @@ public class WordCRUD implements ICRUD{
 		}
 
 	}
-
+	@Override
 	public void loadFile(){
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(fname));
@@ -157,13 +143,13 @@ public class WordCRUD implements ICRUD{
 			e.printStackTrace();
 		}
 	}
-
+	@Override
 	public void searchLevel() {
 		System.out.print("=> 원하는 레벨은? (1~3): ");
 		int level=s.nextInt();
 		listAll(level);
 	}
-
+	@Override
 	public void searchWord() {
 		System.out.print("=> 원하는 단어는?: ");
 		String word=s.next();
