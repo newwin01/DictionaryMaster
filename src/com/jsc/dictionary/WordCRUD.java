@@ -20,6 +20,8 @@ public class WordCRUD implements ICRUD{
 		System.out.print("난이도(1,2,3) & 새 단어 입력 : ");
 		int level = s.nextInt();
 		String word = s.nextLine();
+		word = word.trim();
+		System.out.println(word);
 		System.out.print("뜻 입력: ");
 		String meaning = s.nextLine();
 		// TODO Auto-generated method stub
@@ -28,8 +30,8 @@ public class WordCRUD implements ICRUD{
 
 	@Override
 	public void addWord() {
-		Word one = (Word)add();
-		list.add(one);
+		Word word = (Word)add();
+		list.add(word);
 		System.out.println("단어가 단어장에 추가 되었습니다. ");
 	}
 	@Override
@@ -42,16 +44,24 @@ public class WordCRUD implements ICRUD{
 		System.out.println("------------------------");
 	}
 	@Override
+	//use to list level
 	public void listAll(int level) {
 		int j=0;
 		System.out.println("------------------------");
-		for(int i=0;i<list.size();i++) {
-			int iLevel = list.get(i).getLevel();
+		for(Word i:list){
+			int iLevel = i.getLevel();
 			if(iLevel!=level) continue;
 			System.out.print((j+1)+" ");
-			System.out.println(list.get(i).toString());
+			System.out.println(i);
 			j++;
 		}
+//		for(int i=0;i<list.size();i++) {
+//			int iLevel = list.get(i).getLevel();
+//			if(iLevel!=level) continue;
+//			System.out.print((j+1)+" ");
+//			System.out.println(list.get(i).toString());
+//			j++;
+//		}
 		System.out.println("------------------------");
 	}
 	//Listing certain words
@@ -72,7 +82,7 @@ public class WordCRUD implements ICRUD{
 		return idList;
 	}
 	@Override
-	public void updateItem() {
+	public void updateWord() {
 		System.out.print("==> 수정할 단어 검색: ");
 		String keyword = s.next();
 		ArrayList<Integer> idList = this.listAll(keyword);
@@ -86,7 +96,7 @@ public class WordCRUD implements ICRUD{
 		System.out.println("단어가 수정이 되었습니다. ");
 	}
 	@Override
-	public void deleteItem() {
+	public void deleteWord() {
 		System.out.print("==> 삭제할 단어 검색: ");
 		String keyword = s.next();
 		ArrayList<Integer> idList = this.listAll(keyword);
@@ -115,6 +125,7 @@ public class WordCRUD implements ICRUD{
 			System.out.println("파일 저장이 완료되었습니다. ");
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println("파일 output 에러");
 		}
 
 	}

@@ -29,10 +29,10 @@ public class WordManager {
 				wordCRUD.addWord();
 			}
 			else if(menu==5){
-				wordCRUD.updateItem();
+				wordCRUD.updateWord();
 			}
 			else if(menu==6){
-				wordCRUD.deleteItem();
+				wordCRUD.deleteWord();
 			}
 			else if(menu==7){
 				wordCRUD.saveFile();

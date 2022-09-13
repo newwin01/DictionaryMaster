@@ -8,13 +8,12 @@ public interface ICRUD {
 	public void addWord();
 	public void listAll();
 	public void listAll(int level);
-
 	//Listing certain words
 	public ArrayList<Integer> listAll(String keyword);
 
-	public void updateItem();
+	public void updateWord();
 
-	public void deleteItem();
+	public void deleteWord();
 
 	public void saveFile();
 
