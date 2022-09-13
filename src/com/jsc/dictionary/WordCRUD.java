@@ -21,7 +21,6 @@ public class WordCRUD implements ICRUD{
 		int level = s.nextInt();
 		String word = s.nextLine();
 		word = word.trim();
-		System.out.println(word);
 		System.out.print("뜻 입력: ");
 		String meaning = s.nextLine();
 		// TODO Auto-generated method stub
@@ -52,16 +51,9 @@ public class WordCRUD implements ICRUD{
 			int iLevel = i.getLevel();
 			if(iLevel!=level) continue;
 			System.out.print((j+1)+" ");
-			System.out.println(i);
+			System.out.println(i.toString());
 			j++;
 		}
-//		for(int i=0;i<list.size();i++) {
-//			int iLevel = list.get(i).getLevel();
-//			if(iLevel!=level) continue;
-//			System.out.print((j+1)+" ");
-//			System.out.println(list.get(i).toString());
-//			j++;
-//		}
 		System.out.println("------------------------");
 	}
 	//Listing certain words
@@ -137,7 +129,7 @@ public class WordCRUD implements ICRUD{
 			int count=0;
 			while(true) {
 				line = br.readLine();
-				if(line==null) break;
+				if(line==null||line.length()==0) break;
 				String data[] = line.split("\\|");
 				int level = Integer.parseInt(data[0]);
 				String word = data[1];
@@ -147,7 +139,6 @@ public class WordCRUD implements ICRUD{
 			}
 			br.close();
 			System.out.println("==>"+count+" 개 로딩 완료!");
-
 		} catch (FileNotFoundException e) {
 			System.out.println("파일이 존재하지 않습니다!");
 		} catch (IOException e){
