@@ -22,4 +22,5 @@ public interface ICRUD {
 	public void searchLevel();
 
 	public void searchWord();
+
 }

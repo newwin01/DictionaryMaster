@@ -54,9 +54,12 @@ public class WordCRUD implements ICRUD{
 			System.out.println(i.toString());
 			j++;
 		}
+		if(j==0){
+			System.out.println("단어가 존재하지 않습니다.");
+		}
 		System.out.println("------------------------");
 	}
-	//Listing certain words
+	//Listing words that starts with certain keyword
 	@Override
 	public ArrayList<Integer> listAll(String keyword) {
 		int number = 0;
@@ -64,15 +67,20 @@ public class WordCRUD implements ICRUD{
 		System.out.println("------------------------");
 		for(int i=0;i<list.size();i++) {
 			String word = list.get(i).getWord();
-			if(!word.contains(keyword)) continue;
+			if(!word.contains(
+					keyword)) continue;
 			System.out.print((number+1) + " ");
 			System.out.println(list.get(i).toString());
 			idList.add(i);
 			number++;
 		}
+		if(number==0){
+			System.out.println("단어가 존재하지 않습니다.");
+		}
 		System.out.println("------------------------");
 		return idList;
 	}
+
 	@Override
 	public void updateWord() {
 		System.out.print("==> 수정할 단어 검색: ");
@@ -147,13 +155,13 @@ public class WordCRUD implements ICRUD{
 	}
 	@Override
 	public void searchLevel() {
-		System.out.print("=> 원하는 레벨은? (1~3): ");
+		System.out.print("=> 레벨(1: 초급, 2: 중급, 3:고급) 선택: ");
 		int level=s.nextInt();
 		listAll(level);
 	}
 	@Override
 	public void searchWord() {
-		System.out.print("=> 원하는 단어는?: ");
+		System.out.print("=> 검색할 단어 입력: ");
 		String word=s.next();
 		listAll(word);
 	}
